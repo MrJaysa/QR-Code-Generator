@@ -132,6 +132,6 @@ code {
     }
 
     .mx-3 {
-        margin-inline: 1.2rem;
+        margin-inline: 1.2rem !important;
     }
 }
