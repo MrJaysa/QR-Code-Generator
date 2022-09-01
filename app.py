@@ -22,4 +22,5 @@ def create_qr():
         status = 400
     ), 400
 
-app.run(debug=False, host='0.0.0.0', port=33507)
+if __name__ == "__main__":
+    app.run(port=4550, debug=False, threaded=True)
