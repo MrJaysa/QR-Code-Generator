@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    position: relative;
+    background-color: rgba(236, 236, 236, 0);
+    overflow-y: auto;
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* container */
+.container {
+    overflow-y: auto;
+    height: 100vh;
+}
+.container div:nth-child(1), .container div:nth-child(2) , .container div:nth-child(5) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.container div:nth-child(2) {
+    width: 97%;
+    justify-self: center
+}
+
+
+.form-control {
+    position: relative;
+    height: 70px;
+    border-radius: 12px;
+    margin-inline: 10px;
+}
+
+
+.form-control input {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    outline: none;
+    border: none;
+    font-size: 12pt;
+    text-indent: 30pt;
+    z-index: 1;
+}
+
+.form-control .bx-link { 
+    position: absolute;
+    z-index: 1;
+    padding-block: 23px;
+    font-size: 22px;
+    transition: all 0.5s ease;
+    margin-left: 10px;
+    z-index: 2;
+}
+
+.shadow {
+    box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.137);
+}
+
+code {
+    background-color: black;
+    color: white;
+    display: block;
+    padding: 10px;
+}
+
+#qr, .error, .loader {
+    display: none;
+}
+
+#qr.show {
+    display: flex;
+}
+
+.loader.show, .error.show {
+    display: block !important;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+@media (min-width: 901px) {
+    .container div:nth-child(3), .container div:nth-child(4) {
+        margin-top: 2rem
+    }
+    
+    .container div:nth-child(5) {
+        margin-top: 3rem
+    }
+    .mw {width: 70%;}
+}
+
+@media (max-width: 901px) {
+    .container div:nth-child(2) {
+        width: 95%;
+    }
+    
+    .container div:nth-child(3), .container div:nth-child(4) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .mw {width: 80%;}
+}
+
+@media (max-width: 700px) {
+    .container div:nth-child(2) {
+        width: 90%;
+    }
+    .mw {width: 90%;}
+}
+
+@media (max-width: 683px) {
+    #qr.show {
+        display: block;
+    }
+
+    #qr img {
+        width: 100%;
+        height: auto;
+    }
+}

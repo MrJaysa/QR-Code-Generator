@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>QRCODE GENERATOR</title>
+        <meta name="generator" content="QR-Code-Generator v1.1">
+        <meta property="og:title" content="QR-Code-Generator &amp; Generate QR-Code on the fly">
+
+        <meta name="author" content="Joel Audu">
+        <meta property="og:locale" content="en_US">
+
+        <meta name="description" content="QR-Code Generator with python">
+        <meta property="og:description" content="QR-Code Generator with python">
+        
+        <link rel="canonical" href="{{ url_for('init', _external=True) }}">
+        <meta property="og:url" content="{{ url_for('init', _external=True) }}">
+        <meta property="og:site_name" content="QR-Code-Generator &amp; QR-Code Generator">
+        <meta name="twitter:card" content="summary">
+        <meta property="twitter:title" content="QR-Code-Generator &amp; QR-Code Generator">
+        <script type="application/ld+json">
+            {
+                "url":"{{ url_for('init', _external=True) }}",
+                "headline":"QR-Code-Generator; QR-Code Generator",
+                "description":"QR-Code Generator with python",
+                "@type":"WebSite",
+                "name":"QR-Code Generator &amp; QR-Code Generator",
+                "author":{"@type":"Person","name":"Joel Audu"},
+                "@context":"{{ url_for('init', _external=True) }}"
+            }
+        </script>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='/styles/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='/styles/utilities.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='/styles/boxicons/css/boxicons.min.css') }}">
+    </head>
+    <body>
+        <div class="container grid">
+            <div class="flex justify-space-between align-items-center p-1">
+                <h1 class="font-5">QR-Code Generator</h1>
+                <i class="bx bx-qr font-5"></i>
+            </div>
+
+            <div class="my-5">
+                <form action="{{ url_for('create_qr') }}" data-default="false" data-modal="#modal" data-view="#qr" method="post">
+                    <div class="form-control shadow">
+                        <i class="bx bx-link"></i>
+                        <input type="url" placeholder="Enter a link" name="url" id="link_url">
+                    </div>
+                </form>
+            </div>
+
+            <div>
+                <div class="bg-white mx-3 shadow br-10 p-2">
+                    <p>Hello there, This is an open source project developed with Python Programming Language using a Flask, which is a web microframework for building web applications with Python. This project focuses on creating QR-Codes for any link entered and providing a downloadable QR-Code as image files in PNG format, get an svg equivalent in the later updates and also for test purposes this app can be integrated to any applications requiring it's services.</p>
+                    <p class="mt-1">QR-Code can be generated for any link directly on this website or you can use the API provided to generate QR-Code for your apps.</p>
+                    <p class="mt-1">You can check out this project on the github repository <a href="https://" target="_blank">link here</a>. more updates to this app is coming soon.</p>
+                </div>
+            </div>
+
+            <div class="bg-white mx-3 shadow br-10 p-2">
+                <p>Generate your QR-Code on the fly, just input the url and hit enter</p>
+                <p class="mt-1">You can also send a post request via ajax, fetch or any http request you are familiar with as shown below.</p>
+                <div class="mt-1">
+                    <code class="br-5">
+                        <p class="text-success mb-1">// i'll be using javascript fetch request, ensure your form has a named field 'url'.</p>
+                        <p>let formData = new FormData('your-form')</p>
+                        <p class="mt-1">fetch('{{ url_for('create_qr', _external=True) }}', {</p>
+                        <p class="ml-3">method: 'post',</p>
+                        <p class="ml-3">body: formData</p>
+                        <p>}).then(res=>res.json()</p>
+                        <p>).then(</p>
+                        <p class="ml-3">res=>{console.log(res.data)}</p> 
+                        <p class="mb-1">)</p>
+                    </code>
+                </div>
+            </div>
+
+            <div class="bg-white shadow p-2 br-10 mx-auto text-center mb-1 mx-3">
+                This project is developed by <a href="" target="_blank">Joel Audu</a>
+            </div>
+        </div>
+
+        <div class="modal bg-darken overlay w-100 backdrop-blur-2 flex place-center" data-dismissible='false' id="modal">
+            <div class="card p-2 shadow mw br-10 text-center">
+                <div class="loader">
+                    <i class="bx bx-loader-circle bx-spin font-16 text-light"></i>
+                    <p class="mt-1 font-800 font-4 text-light">Generating QR-Code</p>
+                </div>
+
+                <div id="qr" class="flex justify-space-between">
+                    <div>
+                        <img src="" alt="qr-img" height="300" id="qr_img">
+                        <p></p>
+                    </div>
+                    <div class="flex flex-column justify-space-between py-2">
+                        <a  href="" id="download" class="btn shadow font-5 py-2 px-5 br-10 mb-1">
+                            <i class="bx bx-download font-5"></i>
+                            Download
+                        </a>
+                        <button class="btn font-5 py-2 px-5 br-10 text-white bg-danger close-modal" data-modal="#modal">Close</button>
+                    </div>
+                </div>
+
+                <div class="error">
+                    <i class="bx bx-error-circle text-light font-16 bx-tada"></i>
+                    <p class="mt-1 font-800 font-4 text-light">Something went wrong, please close and re-submit the form</p>
+                    <button class="btn mt-2 font-2 py-2 px-5 br-10 text-white bg-danger close-modal w-60" data-modal="#modal">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="{{ url_for('static', filename='/scripts/main.js') }}"></script>
+    </body>
+</html>
