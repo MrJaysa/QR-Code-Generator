@@ -1,0 +1,2 @@
+# QR-Code-Generator
+Hello there, This is an open source project developed with Python Programming Language using a Flask, which is a web microframework for building web applications with Python. This project focuses on creating QR-Codes for any link entered and providing a downloadable QR-Code as image files in PNG format, get an svg equivalent in the later updates and also for test purposes this app can be integrated to any applications requiring it's services.
