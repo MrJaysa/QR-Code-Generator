@@ -54,7 +54,6 @@ a {
 
 .form-control .bx-link { 
     position: absolute;
-    z-index: 1;
     padding-block: 23px;
     font-size: 22px;
     transition: all 0.5s ease;
